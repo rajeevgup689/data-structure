@@ -12,12 +12,12 @@ public class InsertionSort {
             int temp = numbers[i];
             for(j=i-1; j>= 0; j--) {
                 if(temp < numbers[j]) {
-                    numbers[j+1] = numbers[j];
+                    numbers[j+1] = numbers[j]; // shifting the number so that it make place to insert temp
                  } else {
                     break;
                 }
             }
-            numbers[j+1] = temp;
+            numbers[j+1] = temp; // finally insert temp
         }
 
         System.out.println("\nAfter sort: ");
