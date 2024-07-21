@@ -4,6 +4,10 @@ import java.util.*;
 // you can write to stdout for debugging purposes, e.g.
 // System.out.println("this is a debug message");
 
+/**
+ * 1. BinaryGap
+ * Find longest sequence of zeros in binary representation of an integer.
+ */
 class Solution_MaxGapOfBinary1 {
 
     public static void main(String[] args) {

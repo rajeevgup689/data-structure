@@ -1,5 +1,3 @@
-import static java.lang.StringTemplate.STR;
-
 public class Swap {
     public static void main(String[] args) {
         int a = 2, b = 3;
@@ -15,6 +13,6 @@ public class Swap {
         a = a + b;
         b = a - b;
         a = a - b;
-        System.out.println(STR."a = \{a}, b = \{b}");
+        System.out.println(String.format("a = %s, b = %s", a, b));
     }
 }

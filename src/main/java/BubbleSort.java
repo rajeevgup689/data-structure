@@ -3,7 +3,7 @@ public class BubbleSort {
     public static void main(String[] args) {
         int[] numbers = new int[]{54, 45, 21, 12, 0};
         for(int i = 0; i < numbers.length; i++) {
-            System.out.print(STR."\{numbers[i]} ");
+            System.out.print(numbers[i]);
         }
 
         // Bubble sort
@@ -23,7 +23,7 @@ public class BubbleSort {
 
         System.out.println("\nAfter sort: ");
         for(int number : numbers) {
-            System.out.print(STR."\{number} ");
+            System.out.print(number);
         }
     }
 }
