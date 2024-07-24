@@ -1,3 +1,5 @@
+package codility;
+
 public class ArrListLen {
     public static void main(String[] args) {
         int A[] = new int[]{1, 4, -1, 3, 2};

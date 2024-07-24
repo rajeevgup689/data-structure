@@ -1,3 +1,5 @@
+package util;
+
 public class DecimalToBinary {
     public static void main(String[] args) {
         int decimal = 9;

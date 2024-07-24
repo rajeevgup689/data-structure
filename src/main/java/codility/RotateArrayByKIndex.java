@@ -1,3 +1,5 @@
+package codility;
+
 public class RotateArrayByKIndex {
 
     public static void main(String[] args) {

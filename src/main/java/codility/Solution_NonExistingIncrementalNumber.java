@@ -1,3 +1,5 @@
+package codility;
+
 public class Solution_NonExistingIncrementalNumber {
     public static void main(String[] args) {
         Solution_NonExistingIncrementalNumber obj = new Solution_NonExistingIncrementalNumber();
