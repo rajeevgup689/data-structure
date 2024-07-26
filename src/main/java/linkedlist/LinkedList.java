@@ -1,4 +1,4 @@
-import org.w3c.dom.Node;
+package linkedlist;
 
 public class LinkedList {
     private Node head;
