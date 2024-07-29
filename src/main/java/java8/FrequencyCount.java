@@ -1,10 +1,9 @@
-import java.util.Arrays;
-import java.util.HashMap;
+package java8;
+
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 public class FrequencyCount {
     public static void main(String[] args) {

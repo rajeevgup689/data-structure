@@ -1,11 +1,7 @@
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
-
-public class Solution {
+public class MaxProductOf3Numbers {
 
     public static void main(String[] args) {
-        Solution obj = new Solution();
+        MaxProductOf3Numbers obj = new MaxProductOf3Numbers();
 
         int[] A = new int[]{-3,-1,-2,-2,-5,-6};
         System.out.println("\n" + obj.solution(A));
@@ -29,7 +25,6 @@ public class Solution {
                 }
             }
         }
-
 
         return maxProd;
     }
