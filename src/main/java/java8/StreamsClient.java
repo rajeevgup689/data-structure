@@ -1,12 +1,16 @@
 package java8;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class StreamsClient {
 
@@ -14,6 +18,8 @@ public class StreamsClient {
     public static void main(String[] args) {
         // SumOfAllNumbers
         //System.out.println("sum: " + obj.sumOfAllNumbers(new int[]{1, 2, 3, 4, 5, -1, 0}));
+        List<Integer> numbers = List.of(1, 2, 3, 4, 5, -1, 0);
+        //System.out.println(numbers.stream().mapToInt(n -> (int)n).sum());
 
         // AverageOfAllNumbers
         //System.out.println("avg: " + obj.averageOfAllNumbers(new int[]{1, 2, 3}));
@@ -30,13 +36,35 @@ public class StreamsClient {
 
         // Max and Min numbers
         //int max = Arrays.stream(new int[]{1,3,10,11,5,-1,0,23}).max().getAsInt();
-        int max =
-                Arrays.stream(new int[]{1,3,10,11,5,-1,0,23}).sorted().skip(new int[]{1,3,10,11,5,-1,0,23}.length -1).findFirst().getAsInt();
+//        int max =
+//                Arrays.stream(new int[]{1,3,10,11,5,-1,0,23}).sorted().skip(new int[]{1,3,10,11,5,-1,0,23}.length -1).findFirst().getAsInt();
+        //int max = Arrays.stream(new int[]{1,3,10,11,5,-1,0,23}).reduce((a,b) -> a>b?a:b).getAsInt();
+        int max = numbers.stream().max(Comparator.naturalOrder()).get();
         System.out.println("Max: "+ max);
-        //int min = Arrays.stream(new int[]{1,3,10,11,5,-1,0,23}).min().getAsInt();
-        //int min = Arrays.stream(new int[]{1,3,10,11,5,-1,0,23}).sorted().findFirst().getAsInt();
-        int min = Arrays.stream(new int[]{1,3,10,11,5,-1,0,23}).sorted().limit(1).findFirst().getAsInt();
+//        //int min = Arrays.stream(new int[]{1,3,10,11,5,-1,0,23}).min().getAsInt();
+//        //int min = Arrays.stream(new int[]{1,3,10,11,5,-1,0,23}).sorted().findFirst().getAsInt();
+//        int min = Arrays.stream(new int[]{1,3,10,11,5,-1,0,23}).sorted().limit(1).findFirst().getAsInt();
+        //int min = Arrays.stream(new int[]{1,3,10,11,5,-1,0,23}).reduce((a,b) -> a<b?a:b).getAsInt();
+        int min = numbers.stream().max(Comparator.reverseOrder()).get();
         System.out.println("Min: "+ min);
+
+        // word frequency in sentence
+        String str = "Java is programming language. java is  versatile.";
+        Map<String, Long> wordFrequencyMap = Arrays.stream(str.split("\\s+"))
+                .collect(Collectors.groupingBy(String::toLowerCase, Collectors.counting()));
+        System.out.println(wordFrequencyMap);
+
+        // merge 2 sorted Array into a single array
+        int[] A = {1,3,5,7};
+        int[] B = {2,4,6,8};
+        int[] C = IntStream.concat(Arrays.stream(A), Arrays.stream(B)).sorted().toArray();
+        Arrays.stream(C).forEach(System.out:: print);
+
+        // merge 2 lists of String and merge & sort them and remove duplicates
+        List<String> list1 = List.of("apple", "banana", "orange");
+        List<String> list2 = List.of("banana", "kiwi", "grape");
+        List<String> finalList = Stream.concat(list1.stream(), list2.stream()).sorted(Comparator.comparing(String::valueOf)).distinct().collect(Collectors.toList());
+        System.out.println(finalList);
     }
 
     private int[] numberStartWith(int[] A, int startsWith) {
