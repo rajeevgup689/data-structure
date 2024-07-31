@@ -20,4 +20,6 @@ public final class ImmutableClass {
         // return deep clone obj
         return (Date) remindingDate.clone();
     }
+
+    // no setter
 }
