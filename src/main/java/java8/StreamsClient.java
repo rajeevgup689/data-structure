@@ -65,6 +65,18 @@ public class StreamsClient {
         List<String> list2 = List.of("banana", "kiwi", "grape");
         List<String> finalList = Stream.concat(list1.stream(), list2.stream()).sorted(Comparator.comparing(String::valueOf)).distinct().collect(Collectors.toList());
         System.out.println(finalList);
+
+        // count the special chars in given String
+        String str1 = "a$b#c!~";
+        int count = 0;
+        for(char ch : str1.toCharArray()) {
+            if(!Character.isAlphabetic(ch)) {
+                count++;
+            }
+        }
+        System.out.println("Special chars count is " + count);
+        long count1 = str1.chars().filter(ch -> !Character.isLetterOrDigit(ch)).count();
+        System.out.println("Special chars count using streams is " + count1);
     }
 
     private int[] numberStartWith(int[] A, int startsWith) {
