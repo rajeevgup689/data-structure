@@ -27,7 +27,14 @@ public class Multiple {
         //Challenge 2: Count the frequency of each word in a list.
         // Challenge 3: Find the first non-repeated character in a string.
         String str = "This is string with repeated elements";
-        Optional<Character> firstNonRepeatedChar = str.chars().mapToObj(c -> (char) c).collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting())).entrySet().stream().filter(e -> e.getValue() == 1).map(Map.Entry::getKey).findFirst();
+        Optional<Character> firstNonRepeatedChar = str.chars()
+                .mapToObj(c -> (char) c)
+                .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+                .entrySet().stream()
+                .filter(e -> e.getValue() == 1)
+                //.map(Map.Entry::getKey)
+                .map(e -> e.getKey())
+                .findFirst();
         if(firstNonRepeatedChar.isPresent())
             System.out.println("firstNonRepeatedChar: " + firstNonRepeatedChar.get());
     }
