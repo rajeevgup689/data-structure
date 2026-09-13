@@ -1,10 +1,10 @@
 package java8;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -37,5 +37,26 @@ public class Multiple {
                 .findFirst();
         if(firstNonRepeatedChar.isPresent())
             System.out.println("firstNonRepeatedChar: " + firstNonRepeatedChar.get());
+
+        // Challenge 4: Flatten a list of lists into a single sorted list with duplicates removed.
+        List<String> list1 = new ArrayList<>();
+        list1.add("First");
+        list1.add("Second");
+        list1.add("Third");
+        List<String> list2 = new ArrayList<>();
+        list2.add("First");
+        list2.add("Fouth");
+        list2.add("Fifth");
+        List<List<String>> listOfList = new ArrayList<>();
+        listOfList.add(list1);
+        listOfList.add(list2);
+        List<String> distinctList = listOfList.stream()
+                .flatMap(obj -> obj.stream())
+                //.flatMap(Collection::stream)
+                .distinct()
+                .collect(Collectors.toList());
+        System.out.println("\nChallenge 4:");
+        distinctList.forEach(System.out::println);
+
     }
 }

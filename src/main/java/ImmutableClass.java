@@ -3,7 +3,8 @@ import java.util.Date;
 // final class
 public final class ImmutableClass {
     // private final mutable variable
-    // Immutable classes/variables are Integer, Long, Float, Double, Boolean, Character, Byte, Short and String
+    // Immutable classes/variables are Integer, Long, Float, Double, Boolean, Character, Byte, Short and String,
+    // LocalDate, LocalTime, LocalDateTime, Instant, ZonedDateTime, JsonMapper
     private final Date remindingDate;
 
     // initialization in constructor
